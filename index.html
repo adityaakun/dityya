@@ -4,302 +4,465 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dityya | Info</title>
+  <!-- OG tags for link preview -->
   <meta property="og:title" content="Dityya | Info" />
   <meta property="og:description" content="Hi, I'm Dityya. Check out my social links, tools, and WhatsApp connections." />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630/001833/00ffc3?text=Dityya+Portal" />
-  <meta property="og:url" content="https://dityya.vercel.app" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/000a1a/00D4AA?text=dityya ganteng😏🤭" /> <!-- Updated placeholder for navy bg -->
+  <meta property="og:url" content="https://varshade.netlify.app" />
   <meta property="og:type" content="website" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dityya | VarShade" />
+  <meta name="twitter:description" content="Hi, I'm Dityya. Check out my social links, tools, and WhatsApp connections." />
+  <meta name="twitter:image" content="https://via.placeholder.com/1200x630/000a1a/00D4AA?text=dityya ganteng😏🤭" />
+  <!-- Font & Icon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
+    /* CSS Variables for Themes - Adjusted for navy-blue photo match */
     :root {
-      --bg-color: #00142b;
-      --card-bg: #0a1422;
-      --accent-color: #00ffc3;
+      --bg-color: #000a1a; /* Deeper navy for exact screenshot depth */
       --text-color: #ffffff;
-      --border-radius: 14px;
-      --shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+      --accent-color: #00D4AA;
+      --card-bg: #0a1422; /* Bluer card bg to match photos */
+      --border-radius: 14px; /* Slightly rounder for button/card edges in photos */
+      --shadow: 0 4px 20px rgba(0, 212, 170, 0.15);
     }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-      transition: 0.3s;
+    [data-theme="light"] {
+      --bg-color: #f5f5f5;
+      --text-color: #333333;
+      --accent-color: #00D4AA;
+      --card-bg: #ffffff;
     }
-
-    /* 🌐 Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 20, 34, 0.9);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 1rem;
-      border-bottom: 1px solid rgba(0,255,195,0.2);
-      z-index: 1000;
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {   
+      font-family: 'Inter', sans-serif;   
+      background: var(--bg-color);   
+      color: var(--text-color);   
+      line-height: 1.6;   
+      overflow-x: hidden;  
+      transition: background 0.3s ease, color 0.3s ease;  
     }
-    .navbar-logo {
-      color: var(--accent-color);
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.4rem;
+    
+    /* Navbar - Subtle navy gradient for depth like photos */
+    .navbar {   
+      position: fixed; top: 0; width: 100%;   
+      background: linear-gradient(to bottom, var(--card-bg), rgba(10,20,34,0.8)); /* Navy-tuned */
+      backdrop-filter: blur(10px);   
+      border-bottom: 1px solid var(--accent-color);   
+      z-index: 1000;   
+      padding: 0.5rem 0;  
     }
-
-    .navbar-icons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
+    .navbar-container {   
+      max-width: 1200px; margin: 0 auto;   
+      display: flex; justify-content: space-between; align-items: center; padding: 0 1rem;   
     }
-
-    .navbar-icons button {
-      background: none;
+    .navbar-logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-color); text-decoration: none; }
+    .navbar-menu { display: flex; gap: 1.5rem; }
+    .navbar-link { color: var(--text-color); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; transition: color 0.3s; }
+    .navbar-link:hover { color: var(--accent-color); }
+    .navbar-controls { display: flex; gap: 1rem; }
+    .navbar-icon { background: none; border: none; color: var(--text-color); font-size: 1.2rem; cursor: pointer; padding: 0.5rem; border-radius: var(--border-radius); transition: all 0.3s; }
+    .navbar-icon:hover { background: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 10px rgba(0,212,170,0.5); }
+    .mobile-only { display: none; }
+    
+    /* Main Content - Mobile-first narrow width, tuned for phone screenshots */
+    .container {   
+      max-width: 400px; margin: 80px auto 0; padding: 1rem;   
+      text-align: center;  
+    }
+    .avatar {   
+      width: 100px; height: 100px; border-radius: 50%;   
+      margin-bottom: 1rem; border: 3px solid var(--accent-color);   
+      object-fit: cover;  
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent-color); }
+    .bio { font-size: 1rem; margin-bottom: 2rem; opacity: 0.9; }
+    /* Like Section */
+    #like-section {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    #likeButton {
+      padding: 0.5rem 1rem;
+      background: var(--accent-color);
+      color: var(--bg-color);
       border: none;
-      color: var(--accent-color);
-      font-size: 1.2rem;
+      border-radius: var(--border-radius);
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s;
     }
-
-    .navbar-icons button:hover {
-      color: #fff;
-      transform: scale(1.1);
+    #likeButton:hover {
+      background: #00a67a;
+    } /* Categories - Cyan outlines and roundness like photos */
+    
+    /* Categories - Cyan outlines and roundness like photos */
+    .category { margin-bottom: 2rem; text-align: left; }
+    .category h2 {   
+      display: flex; align-items: center; gap: 0.5rem;   
+      margin-bottom: 1rem; font-size: 1.2rem; color: var(--accent-color);   
     }
-
-    /* 🍔 Dropdown menu (mobile) */
-    .dropdown-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      right: 1rem;
-      background: rgba(10, 20, 34, 0.98);
-      border: 1px solid rgba(0,255,195,0.3);
-      border-radius: var(--border-radius);
-      width: 200px;
-      padding: 1rem;
-      box-shadow: var(--shadow);
-      animation: fadeIn 0.3s ease;
+    .link-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .link-button {   
+      display: flex; align-items: center; gap: 0.75rem;   
+      padding: 1rem; background: var(--card-bg);   
+      border: 1px solid rgba(0, 212, 170, 0.4); /* Slightly stronger cyan for photo match */
+      border-radius: var(--border-radius);   
+      text-decoration: none; color: var(--text-color);   
+      transition: all 0.3s; font-weight: 500;  
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .link-button:hover {   
+      border-color: var(--accent-color); box-shadow: var(--shadow), 0 0 15px rgba(0,212,170,0.3);   
+      transform: translateY(-2px);  
     }
-
-    .dropdown-menu.active {
-      display: flex;
+    .link-button i { color: var(--accent-color); min-width: 20px; }
+    .link-button[data-note="soon"] { opacity: 0.6; cursor: not-allowed; }
+    .link-button[data-note="soon"]:hover { border-color: rgba(0, 212, 170, 0.3); transform: none; box-shadow: none; }
+    
+    /* Music Player - Compacted and matched to screenshot (cassette, progress, controls) */
+    .music-player {   
+      background: var(--card-bg); border-radius: var(--border-radius);   
+      padding: 1rem; margin: 2rem 0; box-shadow: var(--shadow); /* Reduced padding for mobile fit */
     }
-
-    .dropdown-menu a {
-      color: var(--text-color);
-      text-decoration: none;
-      padding: 0.6rem 0.8rem;
-      border-radius: var(--border-radius);
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+    .cassette {   
+      width: 60px; height: 60px; border-radius: 50%; /* Bulat seperti foto, sedikit lebih besar untuk fit */
+      margin: 0 auto 0.8rem; display: block; animation: rotate 2s linear infinite paused;  
+      object-fit: cover; /* Pastikan gambar fill bulat tanpa distorsi */
     }
-
-    .dropdown-menu a:hover {
-      background: rgba(0,255,195,0.1);
-      color: var(--accent-color);
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    #cassette.playing { animation-play-state: running; }
+    .player-info { margin-bottom: 0.8rem; font-weight: 600; font-size: 0.9rem; } /* Smaller text for compactness */
+    .progress-container { margin-bottom: 0.8rem; }
+    .progress-bar {   
+      height: 4px; background: #333; border-radius: 2px; overflow: hidden;   
+      margin-bottom: 0.5rem;  
     }
-
-    main {
-      margin-top: 100px;
-      text-align: center;
-      padding: 1rem;
+    .progress {   
+      height: 100%; background: var(--accent-color); width: 0%; transition: width 0.1s;   
     }
-
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid var(--accent-color);
-      object-fit: cover;
-      margin-bottom: 1rem;
+    .time-display { display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.8; }
+    .player-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+    .player-btn { background: none; border: none; color: var(--text-color); font-size: 1.1rem; cursor: pointer; padding: 0.4rem; border-radius: 50%; transition: all 0.3s; }
+    .player-btn:hover { background: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 10px rgba(0,212,170,0.5); }
+    .player-speed {   
+      background: var(--card-bg); border: 1px solid #333; color: var(--text-color);   
+      padding: 0.4rem; border-radius: var(--border-radius); font-size: 0.8rem;  
     }
-
-    h1 {
-      color: var(--accent-color);
-      font-size: 1.8rem;
+    
+    /* Clock - Exact position and format like bottom of photos, adjusted for multiple times */
+    .clock {   
+      text-align: center; padding: 1rem;   
+      background: var(--card-bg); border-radius: var(--border-radius);   
+      margin: 2rem 0; font-size: 0.9rem; /* Slightly smaller for multi-time fit */
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; /* Allow wrap on small screens */
+      box-shadow: var(--shadow);  
     }
-
-    .bio {
-      opacity: 0.9;
-      font-size: 1rem;
-      margin-bottom: 2rem;
+    .clock span { color: var(--accent-color); } /* Highlight time zones */
+    
+    /* Footer */
+    footer {   
+      text-align: center; padding: 2rem 1rem;   
+      background: var(--card-bg); margin-top: 2rem;  
     }
-
-    /* 🟩 Button List */
-    .category {
-      margin-bottom: 2rem;
-      text-align: left;
+    .footer-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
+    .footer-links a { color: var(--accent-color); font-size: 1.5rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text-color); box-shadow: 0 0 10px rgba(0,212,170,0.5); }
+    
+    /* Mobile Responsiveness - Already phone-optimized, minor tweaks */
+    @media (min-width: 768px) {   
+      .container { max-width: 600px; }
+      .navbar-menu { display: flex !important; }
+      .mobile-only { display: none; }
+      .clock { font-size: 1rem; } /* Larger on desktop */
     }
-
-    .category h2 {
-      color: var(--accent-color);
-      font-size: 1.1rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .link-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .link-button {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      color: var(--text-color);
-      background: var(--card-bg);
-      border: 1px solid rgba(0,255,195,0.3);
-      border-radius: var(--border-radius);
-      padding: 0.9rem 1rem;
-      transition: 0.3s;
-    }
-
-    .link-button:hover {
-      border-color: var(--accent-color);
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-
-    .link-button i {
-      color: var(--accent-color);
-      font-size: 1rem;
-      width: 20px;
-      text-align: center;
-    }
-
-    footer {
-      background: var(--card-bg);
-      text-align: center;
-      padding: 1.5rem;
-      border-top: 1px solid rgba(0,255,195,0.2);
-      margin-top: 3rem;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-      color: var(--accent-color);
-      font-size: 1.4rem;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
     @media (max-width: 480px) {
-      .dropdown-menu {
-        width: 90%;
-        right: 5%;
-      }
-    }
+  .navbar-menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    flex-direction: column;
+    padding: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  .navbar-menu.active {
+    max-height: 200px; /* Sesuai jumlah item */
+    opacity: 1;
+  }
+}
   </style>
 </head>
 <body>
-
-  <!-- 🔷 Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
-    <a href="#" class="navbar-logo">VarShade</a>
-    <div class="navbar-icons">
-      <button id="themeToggle"><i class="fas fa-moon"></i></button>
-      <button id="menuToggle"><i class="fas fa-bars"></i></button>
-    </div>
-
-    <div class="dropdown-menu" id="dropdownMenu">
-      <a href="#"><i class="fas fa-home"></i> Home</a>
-      <a href="#"><i class="fas fa-diagram-project"></i> Projects</a>
-      <a href="#"><i class="fas fa-code"></i> Share Code</a>
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">dityya ganteng😏🤭</a>
+      <div class="navbar-menu" id="navbarMenu">
+        <a href="index.html" class="navbar-link"><i class="fas fa-home"></i> Home</a>
+        <a href="https://vinzzycingterr.sexast.biz.id" class="navbar-link"><i class="fas fa-shopping-bag"></i> Shop</a>
+      </div>
+      <div class="navbar-controls">
+        <button id="themeToggle" class="navbar-icon" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="musicToggle" class="navbar-icon" aria-label="Toggle music">
+          <i class="fas fa-music"></i>
+        </button>
+        <button id="menuToggle" class="navbar-icon mobile-only" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
-
-  <!-- 🌟 Main -->
-  <main>
-    <img src="https://img1.pixhost.to/images/7013/619072900_file.jpg" alt="Profile" class="avatar" />
-    <h1>Dityya | VarShade</h1>
-    <p class="bio">Welcome to my portal. Explore my tools, APIs, and resources all in one place.</p>
-    <!-- 💎 Categories -->
-    <section class="category">
-      <h2>🌐 My Links</h2>
+  
+  <!-- Main Content -->
+  <main class="container">
+    <img src="https://img1.pixhost.to/images/7013/619072900_file.jpg" alt="Profile picture of Dityya" class="avatar" />
+    <h1>Dityya</h1>
+    <p class="bio">Hi, I'm Dityya. Check out my social links, tools, and WhatsApp connections.</p>
+    
+    <!-- Social Media Section -->
+    <div class="category">
+      <h2><i class="fas fa-glasses"></i> Social Media</h2>
       <div class="link-list">
-        <a href="https://dityya.vercel.app" class="link-button"><i class="fas fa-globe"></i> Website</a>
-        <a href="https://github.com/dityya" class="link-button"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://instagram.com/dityya" class="link-button"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.instagram.com/anandaaditya498" class="link-button"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://tiktok.com/@aditya.ananda45" class="link-button"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://t.me/vinzxxc" class="link-button"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="https://vinzzycingterr.sexast.biz.id" class="link-button"><i class="fas fa-shopping-bag"></i> Shop</a>
+        <a href="https://linkedin.com/in/" class="link-button" data-note="soon"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
-    </section>
+    </div>
 
-    <section class="category">
-      <h2>⚙️ Tools</h2>
+    <div class="category">
+      <h2><i class="fas fa-qrcode"></i> QR Generator</h2>
       <div class="link-list">
-        <a href="#" class="link-button"><i class="fas fa-bolt"></i> BlackBox AI Tools</a>
-        <a href="#" class="link-button"><i class="fas fa-robot"></i> Bot WhatsApp</a>
-        <a href="#" class="link-button"><i class="fas fa-server"></i> API Service</a>
+        <a href="https://qr-gen-pro.netlify.app" class="link-button"><i class="fas fa-external-link-alt"></i> QR Generator</a>
       </div>
-    </section>
+    </div>
+    
+    <!-- WhatsApp Section -->
+    <div class="category">
+      <h2><i class="fab fa-whatsapp"></i> WhatsApp</h2>
+      <div class="link-list">
+        <a href="https://wa.me/6287885727400?text=halo" target="_blank" class="link-button">
+          <i class="fab fa-whatsapp"></i> Contact WhatsApp
+        </a>
+        <a href="https://chat.whatsapp.com/GHZiBQ1hJXm7rUQv3Qoe7b" target="_blank" class="link-button">
+          <i class="fab fa-whatsapp"></i> Group WhatsApp
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb81FVm05MUYq3yDKQ2Y" target="_blank" class="link-button">
+          <i class="fab fa-whatsapp"></i> Channel WhatsApp
+        </a>
+      </div>
+    </div>
+    <!-- Music Player -->
+    <div class="music-player">
+      <img src="https://img1.pixhost.to/images/6913/617698551_upload.jpg" alt="Cassette tape for music player" class="cassette" id="cassette" />
+      <div class="player-info" id="music-info">🎧 No music playing</div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="time-display">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button id="prevBtn" class="player-btn"><i class="fas fa-step-backward"></i></button>
+        <button id="playBtn" class="player-btn"><i class="fas fa-play"></i></button>
+        <button id="nextBtn" class="player-btn"><i class="fas fa-step-forward"></i></button>
+        <select id="speedControl" class="player-speed">
+          <option value="0.5">0.5x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </div>
+    </div>
 
-    <section class="category">
-      <h2>💬 Contacts</h2>
-      <div class="link-list">
-        <a href="https://wa.me/6281234567890" class="link-button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:dityya@example.com" class="link-button"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://t.me/dityya" class="link-button"><i class="fab fa-telegram"></i> Telegram</a>
-      </div>
-    </section>
+    <div class="clock" id="clock"><i class="fas fa-clock"></i> Loading Indonesian times...</div>
   </main>
-
-  <!-- 🔻 Footer -->
+  
   <footer>
     <div class="footer-links">
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="https://wa.me/6287885727400" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/anandaaditya498" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/vinzxxc" target="_blank"><i class="fab fa-telegram"></i></a>
     </div>
-    <p>© 2025 Dityya | VarShade</p>
+    <p>&copy; 2025 Dityya. All rights reserved.</p>
   </footer>
 
-  <!-- ⚙️ Script -->
+  <audio id="audio" preload="auto"></audio>
+
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const menuToggle = document.getElementById('menuToggle');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    let darkMode = true;
+// 🌗 Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
 
-    themeToggle.addEventListener('click', () => {
-      darkMode = !darkMode;
-      document.body.style.background = darkMode ? '#00142b' : '#f2f2f2';
-      document.body.style.color = darkMode ? '#ffffff' : '#111';
-      themeToggle.innerHTML = darkMode ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+  // Ganti ikon (matahari ↔️ bulan)
+  themeToggle.querySelector('i').className =
+    currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+});
+
+// 🍔 Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navbarMenu = document.getElementById('navbarMenu');
+
+menuToggle.addEventListener('click', () => {
+  navbarMenu.classList.toggle('active');
+
+  // Ganti ikon garis 3 ↔️ tanda silang
+  const icon = menuToggle.querySelector('i');
+  icon.className = navbarMenu.classList.contains('active')
+    ? 'fas fa-times'
+    : 'fas fa-bars';
+});
+
+// 📱 Tutup menu otomatis setelah klik salah satu link
+document.querySelectorAll('.navbar-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navbarMenu.classList.remove('active');
+    menuToggle.querySelector('i').className = 'fas fa-bars';
+  });
+});
+
+    // Music Player - Updated to match states: initial "No music", play "Now Playing", pause "Paused"
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+    const musicInfo = document.getElementById('music-info');
+    const cassette = document.getElementById('cassette');
+    const speedControl = document.getElementById('speedControl');
+    const musicToggle = document.getElementById('musicToggle');
+
+    const playlist = [
+  // Viral / trending
+  { title: 'La La Lost you', src: 'https://files.catbox.moe/62rwtv.mp3' },
+  { title: 'Terbelenggu', src: 'https://files.catbox.moe/pd7dc9.mp3' },
+  { title: 'Bergema sampai selamanya', src: 'https://files.catbox.moe/6l8rze.mp3' },
+  { title: 'Pouple', src: 'https://files.catbox.moe/t5brdk.mp3' },
+  { title: 'Show Me Love', src: 'https://files.catbox.moe/nlja0w.mp3' },
+  { title: 'Billie ellish', src: 'https://files.catbox.moe/x20fcu.mp3' },
+  { title: 'Pamungkas Monolog', src: 'https://files.catbox.moe/nm1td2.mp3' },
+  { title: 'Aku Kamu Dan Samudra', src: 'https://files.catbox.moe/61pxj2.mp3' }// chill night vibes
+];
+    let currentTrack = 0;
+    let isPlaying = false;
+    let isLoaded = false; // Track if first load has happened
+
+    // Initial state: No music
+    musicInfo.textContent = '🎧 No music playing';
+    progress.style.width = '0%';
+    currentTimeEl.textContent = '0:00';
+    durationEl.textContent = '0:00';
+
+    // Load Track (only when first play)
+    function loadTrack(index) {
+      audio.src = playlist[index].src;
+      musicInfo.textContent = `🎧 Now Playing: ${playlist[index].title}`;
+      audio.load();
+      currentTrack = index;
+      isLoaded = true;
+      if (isPlaying) audio.play();
+    }
+
+    // Play/Pause - Handle states like photos
+    playBtn.addEventListener('click', () => {
+      if (!isLoaded) {
+        loadTrack(0); // Load first track on first click
+        isPlaying = true;
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>'; // To pause icon
+        cassette.classList.add('playing');
+        audio.play().catch(() => {});
+      } else if (isPlaying) {
+        audio.pause();
+        playBtn.innerHTML = '<i class="fas fa-play"></i>'; // Back to play
+        cassette.classList.remove('playing');
+        musicInfo.textContent = '🎧 Playback paused'; // Paused state like photo 3
+      } else {
+        audio.play().catch(() => {});
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>'; // To pause
+        cassette.classList.add('playing');
+        musicInfo.textContent = `🎧 Now Playing: ${playlist[currentTrack].title}`; // Back to playing
+      }
+      isPlaying = !isPlaying;
     });
 
-    menuToggle.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('active');
+    // Next/Prev - Reload track
+    nextBtn.addEventListener('click', () => { 
+      loadTrack((currentTrack + 1) % playlist.length); 
+      if (!isPlaying) musicInfo.textContent = '🎧 No music playing'; // If paused, show paused/no after switch
+    });
+    prevBtn.addEventListener('click', () => { 
+      loadTrack((currentTrack - 1 + playlist.length) % playlist.length); 
+      if (!isPlaying) musicInfo.textContent = '🎧 No music playing';
     });
 
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.remove('active');
+    // Progress Bar
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration && isLoaded) {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = progressPercent + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+        durationEl.textContent = formatTime(audio.duration);
       }
     });
+
+    // Reset on end
+    audio.addEventListener('ended', () => {
+      isPlaying = false;
+      playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      cassette.classList.remove('playing');
+      progress.style.width = '0%';
+      currentTimeEl.textContent = '0:00';
+      musicInfo.textContent = '🎧 Playback paused';
+    });
+
+    // Speed Control
+    speedControl.addEventListener('change', (e) => { 
+      if (isLoaded) audio.playbackRate = parseFloat(e.target.value); 
+    });
+
+    // Format Time
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Music Toggle (Mute/Unmute)
+    musicToggle.addEventListener('click', () => {
+      if (isLoaded) {
+        audio.muted = !audio.muted;
+        musicToggle.querySelector('i').className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-music';
+      }
+    });
+
+    // Fixed Clock for Indonesian Time Zones (WIB, WITA, WIT) - Accurate UTC-based
+    function updateClock() {
+      const now = new Date();
+      const wibTime = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Jakarta', hour12: false });
+      const witaTime = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Makassar', hour12: false });
+      const witTime = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Jayapura', hour12: false });
+      document.getElementById('clock').innerHTML = `<i class="fas fa-clock"></i> <span>WIB: ${wibTime}</span> | <span>WITA: ${witaTime}</span> | <span>WIT: ${witTime}</span>`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
   </script>
 </body>
 </html>
